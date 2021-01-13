@@ -12,7 +12,10 @@
         <link rel="icon" type="image/png/ico" href="tick.ico">
         <title>Super Hero</title>
         <style>
-            
+            .z-index-2 {
+                position: relative;
+                z-index: 2;
+            }
         </style>
     </head>
     
@@ -38,33 +41,44 @@
         </nav>
         <!-- Navbar Ends -->
         <div class="container mt-4">
+            <h2 class="d-none empty-list text-center m-5 p-5 text-muted">Your favourite superhero list is empty!</h2>
             <div class="row">
-                <div class="col-12 px-1 px-md-2 col-md-4">
-                    <div class="card">
-                        <img src="https://www.superherodb.com/pictures2/portraits/10/100/10441.jpg" class="card-img-top" height="400px" width="200px" alt="...">
-                        <div class="card-body pb-0">
+                <div class="col-12 p-0 mx-1 my-2 m-md-3 col-md-3 card">
+                    <!-- <div class=""> -->
+                        <img src="https://www.superherodb.com/pictures2/portraits/10/100/10441.jpg" class="card-img-top" height="350px" width="170px" alt="...">
+                        <div class="card-body p-2">
                             <div class="d-flex justify-content-between">
                                 <div>
                                     <h5 class="card-title mb-2">Super Hero Name</h5>
-                                    <h6 class="text-muted">Real Name</h6>
                                 </div>
                                 <div>
-                                    
-                                    <a href="#" class="text-danger" id="fav-btn" title="favourite" onclick="favourite(this)"><i class="fas fa-heart fa-lg"></i></a>
+                                    <a href="javascript:void(0);" class="text-danger z-index-2" id="fav-btn" title="favourite" onclick="removeFav(this)" data-id="123"><i class="fas fa-heart fa-lg"></i></a>
+                                    <!-- <a href="#" class="btn btn-primary" title="remove from favourites"><i class="fas fa-heart"></i></a> -->
                                 </div>
                             </div>
-                            <!-- <a href="#" class="btn btn-primary" title="remove from favourites"><i class="fas fa-heart"></i></a> -->
-                        </div>
-                        
-                        <ul class="list-group list-group-horizontal small">
-                            <li class="list-group-item small flex-fill">Gender: Male</li>
-                            <li class="list-group-item small flex-fill">Race: Human</li>
-                            <li class="list-group-item small flex-fill">Height: 5'10</li>
-                            <li class="list-group-item small flex-fill">Weight: 77 kg</li>
-                        </ul>
-                        
-                    </div>
+                                <div>
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <p class="sub-title text-muted small m-0">Real Name</p>
+                                        </div>
+                                        <div class="">
+                                            <p class="publisher text-muted small m-0"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <div>
+                            <ul class="list-group list-group-horizontal small">
+                                <li class="list-group-item small p-2 flex-fill">Gender: <br><span class="gender"></span> </li>
+                                <li class="list-group-item small p-2 flex-fill">Race: <br><span class="race"></span> </li>
+                                <li class="list-group-item small p-2 flex-fill">Height: <br><span class="height"></span> </li>
+                                <li class="list-group-item small p-2 flex-fill">Weight: <br><span class="weight"></span> </li>
+                            </ul>
+                        </div> 
+                        <a class="stretched-link" href="xyz.com"></a>
+                    <!-- </div> -->
                 </div>
+                
             </div>
         </div>
         <!-- Optional JavaScript -->
@@ -72,7 +86,7 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-        <script src="favourite.js"></script>
+        <!-- <script src="favourite.js"></script> -->
     </body>
     
     </html>
