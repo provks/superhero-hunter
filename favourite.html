@@ -16,6 +16,9 @@
                 position: relative;
                 z-index: 2;
             }
+            .bg-light{
+                background-color: rgb(248 249 250 / 0.6)!important;
+            }  
         </style>
     </head>
     
@@ -44,39 +47,33 @@
             <h2 class="d-none empty-list text-center m-5 p-5 text-muted">Your favourite superhero list is empty!</h2>
             <div class="row">
                 <div class="col-12 p-0 mx-1 my-2 m-md-3 col-md-3 card">
-                    <!-- <div class=""> -->
-                        <img src="https://www.superherodb.com/pictures2/portraits/10/100/10441.jpg" class="card-img-top" height="350px" width="170px" alt="...">
-                        <div class="card-body p-2">
-                            <div class="d-flex justify-content-between">
-                                <div>
-                                    <h5 class="card-title mb-2">Super Hero Name</h5>
-                                </div>
-                                <div>
-                                    <a href="javascript:void(0);" class="text-danger z-index-2" id="fav-btn" title="favourite" onclick="removeFav(this)" data-id="123"><i class="fas fa-heart fa-lg"></i></a>
-                                    <!-- <a href="#" class="btn btn-primary" title="remove from favourites"><i class="fas fa-heart"></i></a> -->
-                                </div>
+                    <img src="https://www.superherodb.com/pictures2/portraits/10/100/10441.jpg" class="card-img-top" height="350px" width="170px" alt="...">
+                    <div class="card-body p-2">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h5 class="card-title mb-2">Super Hero Name</h5>
                             </div>
-                                <div>
-                                    <div class="d-flex justify-content-between">
-                                        <div>
-                                            <p class="sub-title text-muted small m-0">Real Name</p>
-                                        </div>
-                                        <div class="">
-                                            <p class="publisher text-muted small m-0"></p>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div>
+                                <a href="javascript:void(0);" class="text-danger z-index-2" id="fav-btn" title="favourite" onclick="removeFav(this)" data-id="123"><i class="fas fa-heart fa-lg"></i></a>
+                                <!-- <a href="#" class="btn btn-primary" title="remove from favourites"><i class="fas fa-heart"></i></a> -->
                             </div>
-                        <div>
-                            <ul class="list-group list-group-horizontal small">
-                                <li class="list-group-item small p-2 flex-fill">Gender: <br><span class="gender"></span> </li>
-                                <li class="list-group-item small p-2 flex-fill">Race: <br><span class="race"></span> </li>
-                                <li class="list-group-item small p-2 flex-fill">Height: <br><span class="height"></span> </li>
-                                <li class="list-group-item small p-2 flex-fill">Weight: <br><span class="weight"></span> </li>
-                            </ul>
-                        </div> 
-                        <a class="stretched-link" href="xyz.com"></a>
-                    <!-- </div> -->
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <p class="sub-title text-muted small m-0">Full Name</p>
+                            </div>
+                            <div>
+                                <p class="publisher text-muted small m-0">Publisher</p>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="list-group list-group-horizontal small">
+                        <li class="list-group-item small p-2 flex-fill">Gender: <br>Male<span class="gender"></span> </li>
+                        <li class="list-group-item small p-2 flex-fill">Race: <br>Human<span class="race"></span> </li>
+                        <li class="list-group-item small p-2 flex-fill">Height: <br>5"10'<span class="height"></span> </li>
+                        <li class="list-group-item small p-2 flex-fill">Weight: <br>79 kg<span class="weight"></span> </li>
+                    </ul>
+                    <a class="stretched-link" href="xyz.com"></a>
                 </div>
                 
             </div>
