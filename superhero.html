@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link rel="icon" type="image/png/ico" href="tick.ico">
+    <title>Super Hero</title>
+    <style>    
+    </style>
+</head>
+
+<body>
+    <!-- Navbar Begins -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light px-5">
+        <a class="navbar-brand" href="index.html"><i class="fab fa-stripe-s fa-lg"></i>uper Hero Hunter</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="favourite.html">Favourites <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Navbar Ends -->
+    <!-- Character Details Begins -->
+    <div class="container mt-2 pt-md-4">
+        <div class="row">
+            <div class="col">
+                <div class="card mb-3">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="https://www.superherodb.com/pictures2/portraits/10/100/10441.jpg" class="card-img" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <h5 class="card-title mb-2"></h5>
+                                        <h6 class="text-muted m-0"></h6>
+                                    </div>
+                                    <div>
+                                        <a href="javascript:void(0);" class="text-danger" id="fav-btn" title="favourite" onclick="favourite(this)"><i class="far fa-heart fa-lg"></i></a>
+                                        <!-- <a href="#" class="btn btn-primary" title="remove from favourites"><i class="fas fa-heart"></i></a> -->
+                                    </div>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item pl-0" id="powerstats">Powerstats:
+                                        <p class="m-0 small">Intelligence: <span id="intelligence"></span></p>
+                                        <p class="m-0 small">Strength: <span id="strength"></span></p>
+                                        <p class="m-0 small">Speed: <span id="speed"></span>  </p>
+                                        <p class="m-0 small">Durability: <span id="durability"></span></p>
+                                        <p class="m-0 small">Power: <span id="power"></span></p>
+                                        <p class="m-0 small">Combat: <span id="combat"></span></p>
+                                    </li>
+                                    <li class="list-group-item pl-0 pb-0" id="biography">Biography:
+                                        <p class="m-0 small">Full-name: <span id="full-name"></span></p>
+                                        <p class="m-0 small">Alter-egos: <span id="alter-egos"></span></p>
+                                        <p class="m-0 small">Aliases: <span id="aliases"></span></p>
+                                        <p class="m-0 small">Place-of-birth: <span id="place-of-birth"></span></p>
+                                        <p class="m-0 small">First-appearance: <span id="first-appearance"></span></p>
+                                        <p class="m-0 small">Publisher: <span id="publisher"></span></p>
+                                        <p class="m-0 small">Alignment: <span id="alignment"></span></p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Character Details Ends -->
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="superhero.js"></script>
+</body>
+
+</html>
