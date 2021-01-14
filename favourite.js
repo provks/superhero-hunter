@@ -18,7 +18,7 @@ function showFavourites() {
 function addCharacterToDom(character) {
     // card
     let card = document.createElement('div');
-    card.className = 'col-12 p-0 mx-1 my-2 m-md-3 col-md-3 card';
+    card.className = 'col-12 p-0 mr-2 my-2 mr-md-4 col-md-3 card';
     // avatar
     let characterAvatar = document.createElement('img');
     characterAvatar.src = character.image.url;
@@ -46,8 +46,12 @@ function addCharacterToDom(character) {
     favBtn.className = "text-danger z-index-2";
     favBtn.id = "fav-btn";
     favBtn.title = "favourite";
-    favBtn.onclick = "removeFav(this)";
     favBtn.dataset.id = character.id;
+    // TODO
+    favBtn.addEventListener('click',function(e){
+        // console.log('this', this);
+        removeFromFavourite(this);
+    })
     // favourite icon
     let favIcon = document.createElement('i');
     favIcon.className = "fas fa-heart fa-lg";
@@ -107,9 +111,27 @@ function addCharacterToDom(character) {
 }
 
 // Remove from favourite
-function removeFav(e) {
-    console.log('inside removeFav')
-    console.log(e.dataset.id);
+function removeFromFavourite(element) {
+    // console.log('inside removeFav');
+    // console.log('element.dataset.id', element.dataset.id);
+    // console.log('element', element);
     // 1.remove from DOM
+    if(confirm("Remove " + element.parentElement.previousSibling.firstChild.innerHTML + " from favourites")) {
+        console.log('parent', element.parentElement.parentElement.parentElement.parentElement.remove());
+    }
+
     // 2.remove from localStorage
+    // storedCharactersArray = JSON.parse(localStorage.getItem("characters"));
+    let characterId = element.dataset.id;
+    for (let i = 0; i < storedCharactersArray.length; i++) {
+        console.log('removeFromFavourite Condition :: ', storedCharactersArray[i].id + ' == ' + characterId);
+        console.log(storedCharactersArray[i].id == characterId);
+        if (storedCharactersArray[i].id == characterId) {
+            console.log("SPLICING");
+            storedCharactersArray.splice(i,1);
+            localStorage.setItem("characters", JSON.stringify(storedCharactersArray));
+            alert(element.parentElement.previousSibling.firstChild.innerHTML + ' removed from favourites');
+        }
+    }
+
 }
