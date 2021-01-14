@@ -44,9 +44,6 @@ function showResults(data) {
         let ul = document.createElement("ul");
         ul.className = "list-group";
         
-        // let li = document.createElement("li");
-        // li.className = "list-group-item";
-        
         let anchorTag = document.createElement('a');
         anchorTag.className = "list-group-item list-group-item-action small";
         anchorTag.title = superHero.biography['full-name'];
@@ -84,7 +81,7 @@ function showResults(data) {
         imgContainer.append(heroAvatar);
         infoContainer.append(characterName, realName, group);
         
-        resultsContainer.append(ul); // adds all superheroes cards to DOM
+        resultsContainer.append(ul); // adds all superheroe cards to DOM
     });
 }
 
