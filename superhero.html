@@ -14,11 +14,17 @@
     <style>
         .bg-light{
             background-color: rgb(248 249 250 / 0.6)!important;
-        }  
+        }
+        .bg-image {
+            background-image: url(assets/background.jpeg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        } 
     </style>
 </head>
 
-<body>
+<body class="bg-image">
     <!-- Navbar Begins -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light px-5">
         <a class="navbar-brand" href="index.html"><i class="fab fa-stripe-s fa-lg"></i>uper Hero Hunter</a>
@@ -45,7 +51,7 @@
                 <div class="card mb-3">
                     <div class="row no-gutters">
                         <div class="col-md-4">
-                            <img src="https://www.superherodb.com/pictures2/portraits/10/100/10441.jpg" class="card-img" alt="...">
+                            <img src="" class="card-img" alt="...">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
@@ -56,7 +62,6 @@
                                     </div>
                                     <div>
                                         <a href="javascript:void(0);" class="text-danger" id="fav-btn" title="favourite" onclick="favourite(this)"><i class="far fa-heart fa-lg"></i></a>
-                                        <!-- <a href="#" class="btn btn-primary" title="remove from favourites"><i class="fas fa-heart"></i></a> -->
                                     </div>
                                 </div>
                                 <ul class="list-group list-group-flush">

@@ -116,8 +116,8 @@ function removeFromFavourite(element) {
     // console.log('element.dataset.id', element.dataset.id);
     // console.log('element', element);
     // 1.remove from DOM
-    if(confirm("Remove " + element.parentElement.previousSibling.firstChild.innerHTML + " from favourites")) {
-        console.log('parent', element.parentElement.parentElement.parentElement.parentElement.remove());
+    if(confirm("Remove " + element.parentElement.previousSibling.firstChild.innerHTML + " from favourites?")) {
+        element.parentElement.parentElement.parentElement.parentElement.remove();
     }
 
     // 2.remove from localStorage
@@ -130,7 +130,7 @@ function removeFromFavourite(element) {
             console.log("SPLICING");
             storedCharactersArray.splice(i,1);
             localStorage.setItem("characters", JSON.stringify(storedCharactersArray));
-            alert(element.parentElement.previousSibling.firstChild.innerHTML + ' removed from favourites');
+            alert(element.parentElement.previousSibling.firstChild.innerHTML + ' has been removed from favourites.');
         }
     }
 

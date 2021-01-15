@@ -20,8 +20,7 @@ function getParams(url) {
 // Get parameters from the current URL
 const characterId = getParams(window.location.href).id;
 var character;
-// console.log(character.id);
-console.log(characterId);
+
 // retrieve data from local storage
 var storedCharactersArray = JSON.parse(localStorage.getItem("characters"));
 
@@ -37,7 +36,7 @@ async function fetchSuperHeroes(id) {
             // data => console.log(data)
             function(data) {
                 // console.log('data.response', data.response);
-                console.log('data', data);
+                // console.log('data', data);
                 // to show the results on the page
                 if (data.response == "success") {
                     // status.innerHTML = ((data.results.length > 1) ? `Matches` :`Match`) + ` found : ${data.results.length}`;
@@ -59,9 +58,6 @@ function noResult() {
 
 // ===========  Show result to user  ===========
 function showResults(data) {
-    console.log('inside show results!');
-    // console.log('data size', data.results.length);
-    console.log(data);
     // Character name and full name
     document.getElementsByClassName('card-title')[0].innerHTML = data.name;
     document.getElementsByClassName('text-muted m-0')[0].innerHTML = data.biography['full-name'];
@@ -91,33 +87,31 @@ function showResults(data) {
 // ===========  Initial favourite status  ===========
 function initialFavStatus() {
     if (storedCharactersArray.length > 0) {
-        console.log('storedCharactersArray', storedCharactersArray);
+        // console.log('storedCharactersArray', storedCharactersArray);
         let favIcon = document.getElementById('fav-btn').firstChild.classList;
         if (isFavourite(character.id, storedCharactersArray)) {
             favIcon.remove('far');
             favIcon.add('fas');
-            console.log('initialFavStatus inside if');
+            // console.log('initialFavStatus inside if');
         }
     }
-    console.log('AUTORUN');
-};
+    // console.log('AUTORUN');
+}
 
 // ===========  Toggle favourite  ===========
 function favourite(anchor) {
-    console.log('inside fav');
+    // console.log('inside fav');
 
     // check browser support for localStorage and sessionStorage
     if (typeof(Storage) == "undefined") {
-        // Sorry! No Web Storage support..
         window.alert("Sorry! No Web Storage support..");
         return;
     }
 
     storedCharactersArray = JSON.parse(localStorage.getItem("characters"));
     let favIcon = anchor.firstChild.classList;
-    console.log('storedCharactersArray: ', storedCharactersArray);
-    /* Handle no favourite characters yet hence
-    Add to favourite */
+    // console.log('storedCharactersArray: ', storedCharactersArray);
+    // Handle First favourite character case
     if (storedCharactersArray == null || storedCharactersArray.length == 0) {
         var characters = [];
         characters.push(character);
@@ -127,24 +121,26 @@ function favourite(anchor) {
         favIcon.remove("far");
         favIcon.add("fas");
         // alert message
-        window.alert(character.name + " added to favourites");
+        window.alert(character.name + " is added to favourites.");
     } else {  // handle favourite characters exists
         // check if current character is already favourite
         if (isFavourite(character.id, storedCharactersArray)) {
             // remove from favourites
-            let isRemoved = removeFromFavourite(character.id, storedCharactersArray);
-            if (isRemoved){
-                localStorage.setItem("characters", JSON.stringify(storedCharactersArray));
-                // change icon
-                favIcon.remove("fas");
-                favIcon.add("far");
-                // alert message
-                window.alert(character.name + " removed from favourites");
-            } else {
-                window.alert("OOPS! Something went wrong!");
+            if (confirm("Remove " + character.name + " from favourites?")) {
+                let isRemoved = removeFromFavourite(character.id, storedCharactersArray);
+                if (isRemoved){
+                    localStorage.setItem("characters", JSON.stringify(storedCharactersArray));
+                    // change icon
+                    favIcon.remove("fas");
+                    favIcon.add("far");
+                    // alert message
+                    window.alert(character.name + " has been removed from favourites");
+                } else {
+                    window.alert("OOPS! Something went wrong!");
+                }
             }
 
-        } else { // Add to favrourites
+        } else { // current character is not a Favourite character hence "Add to favrourites"
             try {
                 storedCharactersArray.push(character);
                 // add to local storage
@@ -164,12 +160,9 @@ function favourite(anchor) {
 
 // ===========  Check if character is already favourite  ===========
 function isFavourite(characterId, storedCharactersArray) {
-    console.log("inside isFavourite");
-    console.log('characterId = ',characterId);
-    console.log('storedCharactersArray = ',storedCharactersArray.length);
     for (let i = 0; i < storedCharactersArray.length; i++) {
         if (storedCharactersArray[i].id == characterId) {
-            console.log("isFavourite = TRUE");
+            // console.log("isFavourite = TRUE");
             return true;
         }
     }
@@ -178,12 +171,12 @@ function isFavourite(characterId, storedCharactersArray) {
 
 // ===========  Remove character from the favourites  ===========
 function removeFromFavourite(characterId, storedCharactersArray) {
-    console.log("inside Remove Favourite");
+    // console.log("inside Remove Favourite");
     for (let i = 0; i < storedCharactersArray.length; i++) {
-        console.log('removeFromFavourite Condition :: ', storedCharactersArray[i].id + ' == ' + characterId);
-        console.log(storedCharactersArray[i].id == characterId);
+        // console.log('removeFromFavourite Condition :: ', storedCharactersArray[i].id + ' == ' + characterId);
+        // console.log(storedCharactersArray[i].id == characterId);
         if (storedCharactersArray[i].id == characterId) {
-            console.log("SPLICING");
+            // console.log("SPLICING");
             storedCharactersArray.splice(i,1);
             return true;
         }

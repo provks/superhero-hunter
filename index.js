@@ -1,12 +1,10 @@
-console.log(`Inside test1.js`);
-
-//setup before functions
+// ===========  Initial Setup before functions  ===========
 let typingTimer;                //timer identifier
 let doneTypingInterval = 600;  //time in ms (1 second = 1000)
 let myInput = document.getElementById('searchBar');
 const resultsContainer = document.getElementById('results'); // element to display results within
 
-//on keyup, start the countdown
+// ===========  Start the countdown on 'keyup'  ===========
 myInput.addEventListener('keyup', async () => {
     removeAllChildNodes(resultsContainer);
     clearTimeout(typingTimer);
@@ -16,22 +14,21 @@ myInput.addEventListener('keyup', async () => {
     }
 });
 
-//user is "finished typing," do something
+// ===========  User is "finished typing," do something  ===========
 function doneTyping () {
-    //do something
-    console.log(`Inside doneTyping ${myInput.value}`);
+    // fetch super hero data
     fetchSuperHeroes(myInput.value);
 }
 
-// to clear results container
+// ===========  Clear results container (remove previous search resutls)  ===========
 function removeAllChildNodes(parent) {
+    // console.log('Parent:: ', parent);
     document.querySelectorAll('.list-group-item').forEach(
         child => child.remove());
 }
-    
+
+// ===========  Display matching results on DOM  ===========
 function showResults(data) {
-    // console.log('inside show results!');
-    // console.log('data size', data.results.length);
     let maxResultsToDisplay = 1;
     data.results.map(superHero => {
         // console.log(superHero);
@@ -81,10 +78,11 @@ function showResults(data) {
         imgContainer.append(heroAvatar);
         infoContainer.append(characterName, realName, group);
         
-        resultsContainer.append(ul); // adds all superheroe cards to DOM
+        resultsContainer.append(ul); // adds all superheroes cards to DOM
     });
 }
 
+// ===========  No Matching results found  ===========
 function noResult() {
     let ul = document.createElement("ul");
     ul.className = "list-group";
@@ -101,25 +99,20 @@ function noResult() {
     resultsContainer.append(ul);
 }
 
-// Hit API and Fetch the matching characters
+//  ===========  Hit API and Fetch the matching characters  ===========
 async function fetchSuperHeroes(input) {
     try {
         const response = await fetch(`https://www.superheroapi.com/api.php/2496364390592143/search/` + input)
         .then(response => response.json()) // converting response to json
         .then(
-            // data => console.log(data)
             function(data) {
-                // console.log('data.response', data.response);
-                console.log('data', data);
                 // to show the results on the page
                 if (data.response == "success") {
-                    // status.innerHTML = ((data.results.length > 1) ? `Matches` :`Match`) + ` found : ${data.results.length}`;
                     showResults(data);
                 } else
                     noResult();
             }
             );
-            // console.log('jsonResult', jsonResult);
     } catch (err) {
         console.log('Inside catch', err);
     }
